@@ -1,19 +1,26 @@
-/* eslint-disable react/prop-types */
-import React from 'react';
-
-const Product = () => {
+export default function Product({ product }) {
+  const { title, price, description, image, rating } = product;
+  const { rate, count } = rating;
+  console.log(rate, count);
   return (
-      <article className="product">
-      <img src="" alt="" />
-      <div className="product__details">
-        <h4 className="product__title">product title</h4>
-        <p>Price: $ product price</p>
-        <p>Rating: product rating rate/5</p>
-        <p className="product__desc">Description: product.description</p>
-        <button className="product__btn btn">Add to cart</button>
+    <div className="card">
+      <div className="card_image">
+        <img src={image} alt="card_image" />
       </div>
-    </article>
-  );
-};
+      <div className="product_details">
+        <div className="price_rating">
+          <p>Price : ${price}</p>
+          <p>
+            Rating : {rate}/{count}
+          </p>
+        </div>
+        <h4 className="product_title">{title}</h4>
 
-export default Product;
+        <p className="desc">Description : {description}</p>
+        <button type="button" className="cart_btn">
+          Add to cart
+        </button>
+      </div>
+    </div>
+  );
+}

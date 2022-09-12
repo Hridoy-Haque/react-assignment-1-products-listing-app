@@ -83,13 +83,13 @@ const products = [
   }
 ];
 
-const App = () => {
+function App() {
   return (
     <div>
       <h1 className="title">BD Store</h1>
-      <Products  />
+      <Products products={products} />
     </div>
   );
-};
+}
 
 export default App;
